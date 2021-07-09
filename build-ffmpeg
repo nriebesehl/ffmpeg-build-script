@@ -708,6 +708,7 @@ download "https://www.ffmpeg.org/releases/ffmpeg-4.4.tar.gz"
   --enable-pthreads \
   --enable-static \
   --enable-small \
+  --enable-decklink \
   --enable-version3 \
   --extra-cflags="${CFLAGS} -I$CWD/bmd" \
   --extra-ldexeflags="${LDEXEFLAGS}" \
