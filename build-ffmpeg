@@ -709,7 +709,7 @@ download "https://www.ffmpeg.org/releases/ffmpeg-4.4.tar.gz"
   --enable-static \
   --enable-small \
   --enable-version3 \
-  --extra-cflags="${CFLAGS}" \
+  --extra-cflags="${CFLAGS} -I$CWD/bmd" \
   --extra-ldexeflags="${LDEXEFLAGS}" \
   --extra-ldflags="${LDFLAGS}" \
   --extra-libs="${EXTRALIBS}" \
