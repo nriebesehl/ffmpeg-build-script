@@ -9,6 +9,7 @@ RUN apt-get update \
 
 WORKDIR /app
 COPY ./build-ffmpeg /app/build-ffmpeg
+COPY ./bmd /app/bmd
 
 RUN SKIPINSTALL=yes /app/build-ffmpeg --build --enable-gpl-and-non-free
 
