@@ -2,7 +2,7 @@
 
 ![FFmpeg build script](https://raw.github.com/markus-perl/ffmpeg-build-script/master/ffmpeg-build-script.png)
 
-### If you like the script, please "★" this project!
+### DO NOT REDISTRIBUTE THIS FORK PLZ
 
 build-ffmpeg
 ==========
