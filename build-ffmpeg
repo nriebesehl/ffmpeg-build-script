@@ -7,7 +7,8 @@ PROGNAME=$(basename "$0")
 VERSION=1.26
 CWD=$(pwd)
 PACKAGES="$CWD/packages"
-WORKSPACE="$CWD/workspace"
+# WORKSPACE="$CWD/workspace"
+WORKSPACE="/opt"
 CFLAGS="-I$WORKSPACE/include"
 LDFLAGS="-L$WORKSPACE/lib"
 LDEXEFLAGS=""
@@ -15,6 +16,8 @@ EXTRALIBS="-ldl -lpthread -lm -lz"
 MACOS_M1=false
 CONFIGURE_OPTIONS=()
 NONFREE_AND_GPL=false
+AUTOINSTALL=yes
+SKIPINSTALL=no
 
 # Check for Apple Silicon
 if [[ ("$(uname -m)" == "arm64") && ("$OSTYPE" == "darwin"*) ]]; then
@@ -704,9 +707,9 @@ download "https://www.ffmpeg.org/releases/ffmpeg-4.4.tar.gz"
 ./configure "${CONFIGURE_OPTIONS[@]}" \
   --disable-debug \
   --disable-doc \
-  --disable-shared \
+  --enable-shared \
   --enable-pthreads \
-  --enable-static \
+  --disable-static \
   --enable-small \
   --enable-decklink \
   --enable-version3 \
