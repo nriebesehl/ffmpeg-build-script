@@ -15,7 +15,7 @@ WORKDIR /app
 COPY ./build-ffmpeg /app/build-ffmpeg
 COPY ./bmd /app/bmd
 
-RUN SKIPINSTALL=yes /app/build-ffmpeg --build --enable-gpl-and-non-free
+RUN SKIPINSTALL=no /app/build-ffmpeg --build --enable-gpl-and-non-free
 
 
 FROM ubuntu:${VER}
