@@ -404,13 +404,13 @@ if $NONFREE_AND_GPL; then
   CONFIGURE_OPTIONS+=("--enable-openssl")
 fi
 
-if build "cmake"; then
-  download "https://cmake.org/files/LatestRelease/cmake-3.20.2.tar.gz"
-  execute ./configure --prefix="${WORKSPACE}" --parallel="${MJOBS}" -- -DCMAKE_USE_OPENSSL=OFF
-  execute make -j $MJOBS
-  execute make install
-  build_done "cmake"
-fi
+# if build "cmake"; then
+#   download "https://cmake.org/files/LatestRelease/cmake-3.20.2.tar.gz"
+#   execute ./configure --prefix="${WORKSPACE}" --parallel="${MJOBS}" -- -DCMAKE_USE_OPENSSL=OFF
+#   execute make -j $MJOBS
+#   execute make install
+#   build_done "cmake"
+# fi
 
 if ! $MACOS_M1; then
   if build "svtav1"; then
@@ -703,13 +703,15 @@ fi
 
 build "ffmpeg"
 download "https://www.ffmpeg.org/releases/ffmpeg-4.4.tar.gz"
+#download "https://www.ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2"
 # shellcheck disable=SC2086
 ./configure "${CONFIGURE_OPTIONS[@]}" \
   --disable-debug \
   --disable-doc \
-  --enable-shared \
+  --disable-shared \
   --enable-pthreads \
-  --disable-static \
+  --enable-nvenc \
+  --enable-static \
   --enable-small \
   --enable-decklink \
   --enable-version3 \

@@ -4,3 +4,4 @@ workspace
 linux
 .artifacts
 build
+nv-codec-headers
